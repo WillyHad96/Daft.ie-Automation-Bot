@@ -62,11 +62,11 @@ def sign_in(driver):
 
     username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(username_locator))
     username.clear()
-    username.send_keys("guillermoteniasmoron@hotmail.com")
+    username.send_keys("Your email")
 
     password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(password_locator))
     password.clear()
-    password.send_keys("84264325Gtm.")
+    password.send_keys("Your password")
 
     sign_in_button_locator = (By.XPATH, '//*[@id="login"]')
     click_element(driver, *sign_in_button_locator)
@@ -99,19 +99,19 @@ def apply(driver):
     time.sleep(1)
     first_name = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword1"]')))
     #first_name.clear()                                                                  
-    first_name.send_keys("Guillermo")
+    first_name.send_keys("Your First Name")
 
     last_name = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword2"]')))
     #last_name.clear()
-    last_name.send_keys("Tenias")
+    last_name.send_keys("Your Last Name")
 
     email = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword3"]')))
     #email.clear()
-    email.send_keys("guillermoteniasmoron@hotmail.com")
+    email.send_keys("youremail@yourdomain.com")
 
     phone_number = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword4"]')))
     #phone_number.clear()
-    phone_number.send_keys("083070610")
+    phone_number.send_keys("Your Phone Number")
     time.sleep(1)
 
     driver.execute_script("window.scrollTo(0, 2500);")  #SCROLL DOWN
