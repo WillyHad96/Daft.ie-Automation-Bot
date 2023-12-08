@@ -98,19 +98,19 @@ def apply(driver):
     #FILL THE  EMAIL AGENT FORM
     time.sleep(1)
     first_name = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword1"]')))
-    #first_name.clear()                                                                  
+    first_name.clear()                                                                  
     first_name.send_keys("Your First Name")
 
     last_name = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword2"]')))
-    #last_name.clear()
+    last_name.clear()
     last_name.send_keys("Your Last Name")
 
     email = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword3"]')))
-    #email.clear()
+    email.clear()
     email.send_keys("youremail@yourdomain.com")
 
     phone_number = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword4"]')))
-    #phone_number.clear()
+    phone_number.clear()
     phone_number.send_keys("Your Phone Number")
     time.sleep(1)
 
@@ -125,7 +125,7 @@ def apply(driver):
 
     message = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="message"]')))
     message.clear()
-    message.send_keys("We are Guillermo and Carlota, a lovely Spanish couple that would love to live in your appartment. I am 28 and I work at Datadog as an IT Customer Support Engineer and she works as a Visual Merchandiser at Zara and we are very interested in your appartment. We use to live in Cork for two year but we think Dublin is a most exciting city to live in and we are currently sharing an appartment with another couple but we would love to have our own one.")
+    message.send_keys("Your Message")
 
 
     driver.execute_script("window.scrollTo(0, 2500);")  #SCROLL DOWN
@@ -156,14 +156,12 @@ while announcement_number <= 20:  # LOOP FOR THE DIFFERENT ANNOUNCEMENTS
 
 
 # FINISH THE PROGRAM
-
 driver.quit()
 
-
 # SCHEDULE JOB
-#schedule.every().monday.to("friday").at("07:00").to("22:00").every(1).minutes.do(search_and_click)
+schedule.every().monday.to("friday").at("07:00").to("22:00").every(1).minutes.do()
 
 # RUN THE SCHEDULER
-#while True:
-#    schedule.run_pending()
-#    time.sleep(1)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
