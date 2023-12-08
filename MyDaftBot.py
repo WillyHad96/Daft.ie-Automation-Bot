@@ -13,7 +13,6 @@ import schedule
 
 home_page_url = "https://www.daft.ie/property-for-rent/dublin-city?radius=5000&rentalPrice_from=500&rentalPrice_to=2000"
 applied_urls = set()
-announcement_number = 1
 
 # FUNCTIONS
 
@@ -77,6 +76,7 @@ def search_and_click(driver, announcement_number):
     # SEARCH AND CLICK
     announcement_locator = (By.XPATH, f'//*[@id="__next"]/main/div[3]/div[1]/ul/li[{announcement_number}]/a/div[2]/div[1]/div[2]/div')
     click_element(driver, *announcement_locator)
+    time.sleep(1)
 
     #CHECK THE URL 
     current_url = driver.current_url
@@ -141,25 +141,27 @@ def apply(driver):
 
 # MAIN PROGRAM
 
-driver = open_chrome()
-sign_in(driver)
+def main_program():
+    announcement_number = 1
+    driver = open_chrome()
+    sign_in(driver)
 
-while announcement_number <= 20:  # LOOP FOR THE DIFFERENT ANNOUNCEMENTS
-    current_url = search_and_click(driver, announcement_number)
+    while announcement_number <= 20:  # LOOP FOR THE DIFFERENT ANNOUNCEMENTS
+        current_url = search_and_click(driver, announcement_number)
 
-    if current_url not in applied_urls: # FILTER TO APPLY OR NOT FOR THE ANNOUNCEMENT
-        apply(driver)
-        applied_urls.add(current_url)
-        
-    return_to_main_page(driver)
-    announcement_number += 1
+        if current_url not in applied_urls: # FILTER TO APPLY OR NOT FOR THE ANNOUNCEMENT
+            apply(driver)
+            applied_urls.add(current_url)
+            
+        return_to_main_page(driver)
+        announcement_number += 1
 
 
 # FINISH THE PROGRAM
 driver.quit()
 
 # SCHEDULE JOB
-schedule.every().monday.to("friday").at("07:00").to("22:00").every(1).minutes.do()
+schedule.every().monday.to("friday").at("07:00").to("22:00").every(1).minutes.do(main_program())
 
 # RUN THE SCHEDULER
 while True:
