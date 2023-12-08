@@ -158,12 +158,15 @@ def main_program():
 
 
 # FINISH THE PROGRAM
+
 driver.quit()
 
 # SCHEDULE JOB
+
 schedule.every().monday.to("friday").at("07:00").to("22:00").every(1).minutes.do(main_program())
 
 # RUN THE SCHEDULER
+
 while True:
     schedule.run_pending()
     time.sleep(1)
