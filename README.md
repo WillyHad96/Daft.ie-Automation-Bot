@@ -19,7 +19,7 @@ cd daft-property-scraper**
 **python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`**
 
-3.Install Dependencies:
+3. Install Dependencies:
 **pip install -r requirements.txt**
 
 
