@@ -5,7 +5,7 @@ This project automates the process of searching and applying for rental properti
 **Prerequisites**
 Before you begin, ensure you have the following installed on your local machine:
 
--Python 3.x
+*Python 3.x
 -Google Chrome browser
 -ChromeDriver (ensure the version matches your installed Chrome browser)
 
