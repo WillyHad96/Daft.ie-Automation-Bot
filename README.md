@@ -32,17 +32,19 @@ pip install -r requirements.txt
 ```
 
 
+
 **Usage**
 
 Before running the script, make sure to configure the necessary details such as login credentials and other required fields.
+
 
 **Configuration**
 
 Update the following variables in the script with your details:
 
--username.send_keys("your_email@example.com")
--password.send_keys("your_password")
--Other form fields such as name, email, phone number, and message content in the apply function.
+*username.send_keys("your_email@example.com")
+*password.send_keys("your_password")
+*Other form fields such as name, email, phone number, and message content in the apply function.
 
 
 **Running the Script**
@@ -51,6 +53,7 @@ To run the script locally, execute:
 ```
 python main.py
 ```
+
 
 **Main Program**
 
@@ -73,16 +76,13 @@ The script uses the schedule library to run the main_program function at specifi
 
 **Troubleshooting**
 
--ChromeDriver Compatibility:
-
+*ChromeDriver Compatibility:
 Ensure the ChromeDriver version matches your installed Chrome browser version. You can download the appropriate version from ChromeDriver.
 
--Timeouts and NoSuchElementExceptions:
-
+*Timeouts and NoSuchElementExceptions:
 If you encounter timeouts or element not found errors, review the XPath and CSS selectors used in the script. Elements on the webpage may have changed.
 
--Login Issues:
-
+*Login Issues:
 Ensure the provided login credentials are correct and the login process is as expected.
 
 
